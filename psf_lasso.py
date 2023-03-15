@@ -139,8 +139,6 @@ def psf_lasso(data,psf,eps=0,return_model=True,skip=0,nover=0):
         psf_lasso_rebuild(psf1,beta,c) #same as c=fftconvolve(beta,psf1,mode='same')
         if (nover==2):
             return roll(roll(c[n2-1::nover,n2-1::nover],-1,axis=0),-1,axis=1)
-        elif (nover%2==0):
-            return c[n2+1::nover,n2+1::nover]
         else:
             return c[n2::nover,n2::nover]
     else:
