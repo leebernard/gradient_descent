@@ -90,3 +90,302 @@ demo3[INFO] 2023-03-15 14:47:22,494: When carrying out Regaussianization PSF cor
 demo3[INFO] 2023-03-15 14:47:22,494:     e1, e2 = 0.174, 0.238
 demo3[INFO] 2023-03-15 14:47:22,494: Expected values in the limit that noise and non-Gaussianity are negligible:
 demo3[INFO] 2023-03-15 14:47:22,494:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-15 14:56:19,892: Starting demo script 3 using:
+demo3[INFO] 2023-03-15 14:56:19,893:     - Galaxy is bulge plus disk, flux = 4.0e+06
+demo3[INFO] 2023-03-15 14:56:19,893:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-15 14:56:19,893:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-15 14:56:19,893:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-15 14:56:19,893:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-15 14:56:19,893:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-15 14:56:19,893:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-15 14:56:19,893:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-15 14:56:19,893:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-15 14:56:19,893:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-15 14:56:19,893:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-15 14:56:19,893:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-15 14:56:19,893:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-15 14:56:20,107: Wrote image to 'output/demo3.fits'
+demo3[INFO] 2023-03-15 14:56:20,107: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-15 14:56:20,108: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-15 14:56:20,112: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-15 14:56:20,113:     e1 = 0.092, e2 = 0.189, sigma = 4.641 (pixels)
+demo3[INFO] 2023-03-15 14:56:20,113: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-15 14:56:20,113:     e1, e2 = 0.167, 0.236
+demo3[INFO] 2023-03-15 14:56:20,113: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-15 14:56:20,113:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-15 17:57:20,105: Starting demo script 3 using:
+demo3[INFO] 2023-03-15 17:57:20,105:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-15 17:57:20,105:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-15 17:57:20,105:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-15 17:57:20,105:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-15 17:57:20,105:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-15 17:57:20,105:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-15 17:57:20,105:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-15 17:57:20,106:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-15 17:57:20,106:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-15 17:57:20,106:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-15 17:57:20,106:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-15 17:57:20,106:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-15 17:57:20,106:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-15 17:57:20,334: Wrote image to 'output/demo3.fits'
+demo3[INFO] 2023-03-15 17:57:20,334: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-15 17:57:20,334: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-15 17:57:20,340: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-15 17:57:20,340:     e1 = 0.097, e2 = 0.191, sigma = 4.641 (pixels)
+demo3[INFO] 2023-03-15 17:57:20,340: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-15 17:57:20,340:     e1, e2 = 0.174, 0.238
+demo3[INFO] 2023-03-15 17:57:20,340: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-15 17:57:20,340:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-15 18:07:21,264: Starting demo script 3 using:
+demo3[INFO] 2023-03-15 18:07:21,264:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-15 18:07:21,274:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-15 18:07:21,274:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-15 18:07:21,274:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-15 18:07:21,274:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-15 18:07:21,274:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-15 18:07:21,274:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-15 18:07:21,274:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-15 18:07:21,274:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-15 18:07:21,274:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-15 18:07:21,274:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-15 18:07:21,274:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-15 18:07:21,274:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-15 18:07:21,493: Wrote image to 'output/demo3.fits'
+demo3[INFO] 2023-03-15 18:07:21,493: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-15 18:07:21,493: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-15 18:07:21,497: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-15 18:07:21,497:     e1 = 0.091, e2 = 0.189, sigma = 4.640 (pixels)
+demo3[INFO] 2023-03-15 18:07:21,497: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-15 18:07:21,497:     e1, e2 = 0.165, 0.237
+demo3[INFO] 2023-03-15 18:07:21,497: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-15 18:07:21,497:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 10:16:26,618: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 10:16:26,619:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 10:16:26,619:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 10:16:26,619:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 10:16:26,619:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 10:16:26,619:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 10:16:26,619:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 10:16:26,619:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 10:16:26,619:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 10:16:26,619:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 10:16:26,620:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 10:16:26,620:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 10:16:26,620:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-20 10:16:26,620:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-20 10:16:26,905: Wrote image to 'output/demo3.fits'
+demo3[INFO] 2023-03-20 10:16:26,906: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-20 10:16:26,906: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 10:16:26,910: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 10:16:26,910:     e1 = 0.097, e2 = 0.191, sigma = 4.641 (pixels)
+demo3[INFO] 2023-03-20 10:16:26,910: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 10:16:26,910:     e1, e2 = 0.174, 0.238
+demo3[INFO] 2023-03-20 10:16:26,910: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 10:16:26,910:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 10:21:50,761: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 10:21:50,761: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 10:21:50,761:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 10:21:50,761:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 10:21:50,761:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 10:21:50,761:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 10:21:50,761:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 10:21:50,761:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 10:21:50,761:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 10:21:50,761:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 10:21:50,761:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 10:21:50,761:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 10:21:50,762:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 10:21:50,762:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 10:21:50,762:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 10:21:50,762:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 10:21:50,762:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 10:21:50,762:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 10:21:50,762:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 10:21:50,762:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 10:21:50,762:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 10:21:50,762:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 10:21:50,762:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 10:21:50,762:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 10:21:50,762:     - Poisson noise (sky level = 0.0e+00, gain = 1.7).
+demo3[INFO] 2023-03-20 10:21:50,762:     - Poisson noise (sky level = 0.0e+00, gain = 1.7).
+demo3[INFO] 2023-03-20 10:21:50,762:     - Gaussian read noise (sigma = 0.00).
+demo3[INFO] 2023-03-20 10:21:50,762:     - Gaussian read noise (sigma = 0.00).
+demo3[INFO] 2023-03-20 10:21:50,887: Wrote image to 'output/demo3.fits'
+demo3[INFO] 2023-03-20 10:21:50,887: Wrote image to 'output/demo3.fits'
+demo3[INFO] 2023-03-20 10:21:50,888: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-20 10:21:50,888: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-20 10:21:50,888: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 10:21:50,888: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 10:21:50,889: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 10:21:50,889: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 10:21:50,889:     e1 = 0.089, e2 = 0.188, sigma = 4.636 (pixels)
+demo3[INFO] 2023-03-20 10:21:50,889:     e1 = 0.089, e2 = 0.188, sigma = 4.636 (pixels)
+demo3[INFO] 2023-03-20 10:21:50,889: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 10:21:50,889: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 10:21:50,889:     e1, e2 = 0.164, 0.235
+demo3[INFO] 2023-03-20 10:21:50,889:     e1, e2 = 0.164, 0.235
+demo3[INFO] 2023-03-20 10:21:50,889: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 10:21:50,889: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 10:21:50,889:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 10:21:50,889:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 12:30:27,044: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 12:30:27,044: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 12:30:27,044: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 12:30:27,044:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 12:30:27,044:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 12:30:27,044:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 12:30:27,044:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 12:30:27,044:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 12:30:27,044:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 12:30:27,044:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 12:30:27,044:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 12:30:27,044:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 12:30:27,044:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 12:30:27,044:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 12:30:27,044:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 12:30:27,044:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 12:30:27,044:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 12:30:27,044:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 12:30:27,044:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 12:30:27,044:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 12:30:27,044:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 12:30:27,044:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 12:30:27,044:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 12:30:27,044:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 12:30:27,044:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 12:30:27,044:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 12:30:27,044:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 12:30:27,045:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 12:30:27,045:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 12:30:27,045:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 12:30:27,045:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 12:30:27,045:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 12:30:27,045:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 12:30:27,045:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 12:30:27,045:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 12:30:27,045:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 12:30:27,045:     - Poisson noise (sky level = 0.0e+00, gain = 1.7).
+demo3[INFO] 2023-03-20 12:30:27,045:     - Poisson noise (sky level = 0.0e+00, gain = 1.7).
+demo3[INFO] 2023-03-20 12:30:27,045:     - Poisson noise (sky level = 0.0e+00, gain = 1.7).
+demo3[INFO] 2023-03-20 12:30:27,045:     - Gaussian read noise (sigma = 0.00).
+demo3[INFO] 2023-03-20 12:30:27,045:     - Gaussian read noise (sigma = 0.00).
+demo3[INFO] 2023-03-20 12:30:27,045:     - Gaussian read noise (sigma = 0.00).
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote image to 'output/galsim_demo3_nonoise.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote image to 'output/galsim_demo3_nonoise.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote image to 'output/galsim_demo3_nonoise.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote effective PSF image to 'output/demo3_epsf_nonoise.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote effective PSF image to 'output/demo3_epsf_nonoise.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote effective PSF image to 'output/demo3_epsf_nonoise.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 12:30:27,161: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 12:30:27,162: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 12:30:27,162: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 12:30:27,162: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 12:30:27,162:     e1 = 0.089, e2 = 0.188, sigma = 4.636 (pixels)
+demo3[INFO] 2023-03-20 12:30:27,162:     e1 = 0.089, e2 = 0.188, sigma = 4.636 (pixels)
+demo3[INFO] 2023-03-20 12:30:27,162:     e1 = 0.089, e2 = 0.188, sigma = 4.636 (pixels)
+demo3[INFO] 2023-03-20 12:30:27,162: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 12:30:27,162: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 12:30:27,162: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 12:30:27,162:     e1, e2 = 0.163, 0.235
+demo3[INFO] 2023-03-20 12:30:27,162:     e1, e2 = 0.163, 0.235
+demo3[INFO] 2023-03-20 12:30:27,162:     e1, e2 = 0.163, 0.235
+demo3[INFO] 2023-03-20 12:30:27,162: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 12:30:27,162: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 12:30:27,162: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 12:30:27,162:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 12:30:27,162:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 12:30:27,162:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 12:33:36,800: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 12:33:36,800: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 12:33:36,800: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 12:33:36,800: Starting demo script 3 using:
+demo3[INFO] 2023-03-20 12:33:36,800:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 12:33:36,800:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 12:33:36,800:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 12:33:36,800:     - Galaxy is bulge plus disk, flux = 1.0e+06
+demo3[INFO] 2023-03-20 12:33:36,801:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:        - Bulge is Sersic (n = 3.5, re = 2.30), frac = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 12:33:36,801:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 12:33:36,801:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 12:33:36,801:        - Disk is Sersic (n = 1.5, r0 = 0.85), frac = 0.7
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is q,beta (0.73,23.00 deg)
+demo3[INFO] 2023-03-20 12:33:36,801:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 12:33:36,801:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 12:33:36,801:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 12:33:36,801:     - Atmospheric PSF is Kolmogorov with fwhm = 2.10
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 12:33:36,801:        - Shape is e,beta (0.13,0.81 rad)
+demo3[INFO] 2023-03-20 12:33:36,801:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 12:33:36,801:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 12:33:36,801:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 12:33:36,801:     - Optical PSF has defocus = 0.53, astigmatism = (-0.29,0.12),
+demo3[INFO] 2023-03-20 12:33:36,801:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 12:33:36,801:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 12:33:36,801:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 12:33:36,801:           coma = (0.64,-0.33), lambda = 800 nm, D = 4.0 m
+demo3[INFO] 2023-03-20 12:33:36,801:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:           obscuration linear size = 0.3
+demo3[INFO] 2023-03-20 12:33:36,801:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 12:33:36,801:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 12:33:36,801:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 12:33:36,801:     - pixel scale = 0.46,
+demo3[INFO] 2023-03-20 12:33:36,802:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 12:33:36,802:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 12:33:36,802:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 12:33:36,802:     - WCS distortion = (-0.02,0.01),
+demo3[INFO] 2023-03-20 12:33:36,802:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-20 12:33:36,802:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-20 12:33:36,802:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-20 12:33:36,802:     - Poisson noise (sky level = 5.0e+04, gain = 1.7).
+demo3[INFO] 2023-03-20 12:33:36,802:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-20 12:33:36,802:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-20 12:33:36,802:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-20 12:33:36,802:     - Gaussian read noise (sigma = 0.30).
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote image to 'output/galsim_demo3.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote image to 'output/galsim_demo3.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote image to 'output/galsim_demo3.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote image to 'output/galsim_demo3.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote effective PSF image to 'output/demo3_epsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,922: Wrote optics-only PSF image (Nyquist sampled) to 'output/demo3_opticalpsf.fits'
+demo3[INFO] 2023-03-20 12:33:36,923: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 12:33:36,923: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 12:33:36,923: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 12:33:36,923: HSM reports that the image has observed shape and size:
+demo3[INFO] 2023-03-20 12:33:36,923:     e1 = 0.097, e2 = 0.191, sigma = 4.641 (pixels)
+demo3[INFO] 2023-03-20 12:33:36,923:     e1 = 0.097, e2 = 0.191, sigma = 4.641 (pixels)
+demo3[INFO] 2023-03-20 12:33:36,923:     e1 = 0.097, e2 = 0.191, sigma = 4.641 (pixels)
+demo3[INFO] 2023-03-20 12:33:36,923:     e1 = 0.097, e2 = 0.191, sigma = 4.641 (pixels)
+demo3[INFO] 2023-03-20 12:33:36,923: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 12:33:36,923: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 12:33:36,923: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 12:33:36,923: When carrying out Regaussianization PSF correction, HSM reports
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.174, 0.238
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.174, 0.238
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.174, 0.238
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.174, 0.238
+demo3[INFO] 2023-03-20 12:33:36,923: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 12:33:36,923: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 12:33:36,923: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 12:33:36,923: Expected values in the limit that noise and non-Gaussianity are negligible:
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.172, 0.240
+demo3[INFO] 2023-03-20 12:33:36,923:     e1, e2 = 0.172, 0.240
