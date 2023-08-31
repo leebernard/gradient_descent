@@ -24,7 +24,74 @@ import matplotlib.pyplot as plt
 from skimage.transform import hough_line, hough_line_peaks
 from skimage.transform import probabilistic_hough_line
 from skimage.feature import canny
+from skimage.draw import line as draw_line
 from matplotlib import cm
+
+
+def draw_box(imdata, c1, c2, c3, c4, mag=255):
+    """
+    Draws an arbitrary box, using four pixel coordinate pairs.
+    Treats c1 as the origin, and then draws the box through c2, c3, and c4, in that order
+    Parameters
+    ----------
+    c1
+    c2
+    c3
+    c4
+
+    Returns
+    -------
+    Image data with a box added to it.
+    """
+    imdata[draw_line(*c1, *c2)] = mag
+    imdata[draw_line(*c2, *c3)] = mag
+    imdata[draw_line(*c3, *c4)] = mag
+    imdata[draw_line(*c4, *c1)] = mag
+
+
+def draw_slit(imdata, origin, length, angle, aspect_ratio=30, mag=255, debug=False):
+    # define the corners
+    c1 = origin  # set first corner
+
+    # walk to 2nd corner
+    origin = np.rint((length*np.sin(-angle) + origin[0], length*np.cos(-angle) + origin[1])).astype(int)
+    c2 = origin  # set second corner
+
+    # walk to 3rd corner
+    angle += np.pi / 2  # rotate 90 degrees
+    origin = np.rint((length/aspect_ratio*np.sin(-angle) + origin[0], length/aspect_ratio*np.cos(-angle) + origin[1])).astype(int)
+    c3 = origin  # set third corner
+
+    # walk to the 4th corner
+    angle += np.pi / 2  # rotate 90 degrees
+    origin = np.rint((length*np.sin(-angle) + origin[0], length*np.cos(-angle) + origin[1])).astype(int)
+    c4 = origin  # set 4th corner
+
+    # test
+    if debug:
+        angle += np.pi / 2  # rotate 90 degrees
+        origin = np.rint((length/aspect_ratio*np.sin(-angle) + origin[0], length/aspect_ratio*np.cos(-angle) + origin[1])).astype(int)
+        print('starting location:', c1)
+        print('Final location:', origin)
+        print('Sucessful walk?', origin == c1)
+
+    draw_box(imdata, c1, c2, c3, c4, mag=mag)
+
+# test data:
+origin, length, angle = (25, 25), 60, np.radians(5)
+
+
+# Constructing test image
+image = np.zeros((200, 200))
+# idx = np.arange(25, 175)
+# image[idx, idx] = 255
+# image[draw_line(45, 25, 25, 175)] = 255
+# image[draw_line(25, 135, 175, 155)] = 255
+
+# corners = ((45, 45), (25, 175), (175, 155), (150, 35))
+# draw_box(image, *corners)
+draw_slit(image, origin, length, angle)
+# end create test data
 
 # create some test data
 im_path = 'image_data/slit_nofilter_screenshot.png'
@@ -36,7 +103,7 @@ slit_data = np.asarray(slit_im.convert('L'))
 slit_data = slit_data[150:, 500:1500]
 
 plt.imshow(slit_data)
-# end create test data
+
 
 # Classic straight-line Hough transform
 # Set a precision of 0.5 degree.
