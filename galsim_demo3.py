@@ -261,8 +261,8 @@ def main(argv):
     logger.debug('Added Gaussian and Poisson noise')
 
     # Write the images to files.
-    file_name = os.path.join('output', 'demo3.fits')
-    file_name_epsf = os.path.join('output', 'demo3_epsf.fits')
+    file_name = os.path.join('output', 'galsim_demo3.fits')
+    file_name_epsf = os.path.join('output', 'galsim_demo3_epsf.fits')
     file_name_opticalpsf = os.path.join('output', 'demo3_opticalpsf.fits')
     image.write(file_name)
     image_epsf.write(file_name_epsf)

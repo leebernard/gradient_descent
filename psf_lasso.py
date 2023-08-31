@@ -21,7 +21,8 @@ def oversamp_psf(psf,nover):
     """
      Lanczos-4 interpolation to shift PSF for oversampling
     """
-    if (nover<1): nover=1
+    if (nover<1):
+        nover=1
     s=len(psf)
     inover = int(ceil(nover))
     if (nover!=inover):
@@ -34,15 +35,18 @@ def oversamp_psf(psf,nover):
     xx1 = arange(8)-3.
     xx2 = arange(8)-4.
     def f(a):
-        if (a>=0): return hstack((0,sinc((a-xx1))*sinc((a-xx1)/4.)))
-        else: return hstack((sinc((a-xx2))*sinc((a-xx2)/4.),0))
+        if (a>=0):
+            return hstack((0,sinc((a-xx1))*sinc((a-xx1)/4.)))
+        else:
+            return hstack((sinc((a-xx2))*sinc((a-xx2)/4.),0))
 
     for i in range(inover):
         dx = (n2-i)/nover
         for j in range(inover):
             dy = (n2-j)/nover
             im = f(dx)[:,newaxis]*f(dy)[newaxis,:]
-            if (dx==0 and dy==0): psf_out[i::inover,j::inover] = psf
+            if (dx==0 and dy==0):
+                psf_out[i::inover,j::inover] = psf
             else:
                 pp = fftconvolve(psf,im,mode='same')
                 psf_out[i::inover,j::inover] = pp*pp0/sqrt((pp**2).sum())
@@ -187,3 +191,6 @@ if __name__ == "__main__":
             print ("Unable to read input file WCS, ignoring...")
 
     writeto('lasso_'+file,model,hdr,overwrite=True)
+
+
+

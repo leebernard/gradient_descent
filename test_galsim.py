@@ -17,7 +17,7 @@ psf = getdata(file_name_epsf)
 
 mdl = psf_glmnet(x, psf)
 
-lasso_output = psf_lasso(x, psf)
+lasso_output = psf_lasso(x, psf, nover=0)
 
 print('Regression finished, displaying results...')
 
@@ -44,7 +44,7 @@ fullfig, fullax = plt.subplots()
 pos = fullax.imshow(lasso_output, cmap='twilight') #, vmin=vmin, vmax=vmax)
 fullfig.colorbar(pos, ax=fullax)
 
-file_name = os.path.join('output', 'galsim_halfsize2_results.png')
+file_name = os.path.join('output', 'centered_psf_test.png')
 fig.savefig(file_name)
 # plt.show()
 
