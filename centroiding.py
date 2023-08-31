@@ -78,11 +78,11 @@ def draw_slit(imdata, origin, length, angle, aspect_ratio=30, mag=255, debug=Fal
     draw_box(imdata, c1, c2, c3, c4, mag=mag)
 
 # test data:
-origin, length, angle = (25, 25), 60, np.radians(5)
+origin, length, angle = (1202, 800), 350, np.radians(-2)
 
 
 # Constructing test image
-image = np.zeros((200, 200))
+fake_slit = np.zeros((2048, 2448))
 # idx = np.arange(25, 175)
 # image[idx, idx] = 255
 # image[draw_line(45, 25, 25, 175)] = 255
@@ -90,31 +90,31 @@ image = np.zeros((200, 200))
 
 # corners = ((45, 45), (25, 175), (175, 155), (150, 35))
 # draw_box(image, *corners)
-draw_slit(image, origin, length, angle)
+draw_slit(fake_slit, origin, length, angle)
 # end create test data
 
-# create some test data
-im_path = 'image_data/slit_nofilter_screenshot.png'
-from PIL import Image
-slit_im = Image.open(im_path)
-# convert to numpy array
-slit_data = np.asarray(slit_im.convert('L'))
-# crop the top
-slit_data = slit_data[150:, 500:1500]
-
-plt.imshow(slit_data)
+# # create some test data
+# im_path = 'image_data/slit_nofilter_screenshot.png'
+# from PIL import Image
+# slit_im = Image.open(im_path)
+# # convert to numpy array
+# slit_data = np.asarray(slit_im.convert('L'))
+# # crop the top
+# slit_data = slit_data[150:, 500:1500]
+#
+# plt.imshow(slit_data)
 
 
 # Classic straight-line Hough transform
 # Set a precision of 0.5 degree.
 tested_angles = np.linspace(-np.pi / 2, np.pi / 2, 360, endpoint=False)
-h, theta, d = hough_line(slit_data, theta=tested_angles)
+h, theta, d = hough_line(fake_slit, theta=tested_angles)
 
 # Generating figure 1
 fig, axes = plt.subplots(1, 3, figsize=(15, 6))
 ax = axes.ravel()
 
-ax[0].imshow(slit_data, cmap=cm.gray)
+ax[0].imshow(fake_slit, cmap=cm.gray)
 ax[0].set_title('Input image')
 ax[0].set_axis_off()
 
@@ -129,8 +129,8 @@ ax[1].set_xlabel('Angles (degrees)')
 ax[1].set_ylabel('Distance (pixels)')
 ax[1].axis('image')
 
-ax[2].imshow(slit_data, cmap=cm.gray)
-ax[2].set_ylim((slit_data.shape[0], 0))
+ax[2].imshow(fake_slit, cmap=cm.gray)
+ax[2].set_ylim((fake_slit.shape[0], 0))
 ax[2].set_axis_off()
 ax[2].set_title('Detected lines')
 
@@ -143,7 +143,7 @@ plt.show()
 
 
 # try again, but with some filtering
-edges = canny(slit_data, 2, 1, 25)
+edges = canny(fake_slit, 2, 1, 25)
 # edges = canny(slit_data, sigma=1.0, low_threshold=10, high_threshold=20, use_quantiles=False)
 # plt.imshow(edges)
 
@@ -153,7 +153,7 @@ lines = probabilistic_hough_line(edges, threshold=10, line_length=3, line_gap=10
 fig, axes = plt.subplots(1, 3, figsize=(15, 5), sharex=True, sharey=True)
 ax = axes.ravel()
 
-ax[0].imshow(slit_data, cmap=cm.gray)
+ax[0].imshow(fake_slit, cmap=cm.gray)
 ax[0].set_title('Input image')
 
 ax[1].imshow(edges, cmap=cm.gray)
@@ -163,8 +163,8 @@ ax[2].imshow(edges * 0)
 for line in lines:
     p0, p1 = line
     ax[2].plot((p0[0], p1[0]), (p0[1], p1[1]))
-ax[2].set_xlim((0, slit_data.shape[1]))
-ax[2].set_ylim((slit_data.shape[0], 0))
+ax[2].set_xlim((0, fake_slit.shape[1]))
+ax[2].set_ylim((fake_slit.shape[0], 0))
 ax[2].set_title('Probabilistic Hough')
 
 for a in ax:
