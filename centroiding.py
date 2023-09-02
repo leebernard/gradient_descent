@@ -19,13 +19,14 @@ for a clear solution.
 
 import numpy as np
 import matplotlib.pyplot as plt
+import rawpy
 
 # from scipy.optimize import curve_fit
-from skimage.transform import hough_line, hough_line_peaks
-from skimage.transform import probabilistic_hough_line
+
 from skimage.feature import canny
 from skimage.draw import line as draw_line
-from matplotlib import cm
+from skimage.feature import corner_harris, corner_subpix, corner_peaks
+from skimage.feature import corner_fast
 
 
 def draw_box(imdata, c1, c2, c3, c4, mag=255):
@@ -82,7 +83,9 @@ origin, length, angle = (1202, 800), 350, np.radians(-2)
 
 
 # Constructing test image
-fake_slit = np.zeros((2048, 2448))
+image_size = (2048, 2448)
+fake_slit = np.zeros(image_size)
+
 # idx = np.arange(25, 175)
 # image[idx, idx] = 255
 # image[draw_line(45, 25, 25, 175)] = 255
@@ -93,85 +96,151 @@ fake_slit = np.zeros((2048, 2448))
 draw_slit(fake_slit, origin, length, angle)
 # end create test data
 
-# # create some test data
-# im_path = 'image_data/slit_nofilter_screenshot.png'
-# from PIL import Image
-# slit_im = Image.open(im_path)
-# # convert to numpy array
-# slit_data = np.asarray(slit_im.convert('L'))
-# # crop the top
+# create some test data
+im_path = 'image_data/Image__2023-09-01__22-02-26_slit_background12bit.tiff'
+from PIL import Image
+slit_im = Image.open(im_path)
+# slit_raw = rawpy.imread(im_path)
+# convert to numpy array
+slit_data = np.asarray(slit_im)
+# crop the top
 # slit_data = slit_data[150:, 500:1500]
+
+plt.imshow(slit_data[500:, 500:2000])
+# end create test data
+
+from astropy.stats import sigma_clip
+
+masked_slit = sigma_clip(slit_data, sigma_upper=3)
+masked_slit.fill_value = np.mean(masked_slit)
+
+coords = corner_peaks(corner_harris(masked_slit, k=0.15), min_distance=5, threshold_rel=0.02)
+coords_subpix = corner_subpix(slit_data, coords, window_size=13)
+
+fig, ax = plt.subplots()
+ax.imshow(masked_slit, cmap=plt.cm.gray)
+ax.plot(coords[:, 1], coords[:, 0], color='cyan', marker='o',
+        linestyle='None', markersize=6)
+ax.plot(coords_subpix[:, 1], coords_subpix[:, 0], '+r', markersize=15)
+coords_center = coords_subpix.mean(axis=0)
+ax.plot(coords_center[1], coords_center[0], '+r', markersize=15)
+# ax.axis((0, 310, 200, 0))
+plt.show()
+
+# try again, with filtered data
+edges = canny(slit_data)
+
+coords = corner_peaks(corner_shi_tomasi(edges), min_distance=5, threshold_rel=0.02)
+coords_subpix = corner_subpix(edges, coords, window_size=13)
+
+fig, ax = plt.subplots()
+ax.imshow(edges, cmap=plt.cm.gray)
+ax.plot(coords[:, 1], coords[:, 0], color='cyan', marker='o',
+        linestyle='None', markersize=6)
+ax.plot(coords_subpix[:, 1], coords_subpix[:, 0], '+r', markersize=15)
+# ax.axis((0, 310, 200, 0))
+plt.show()
+
+
+# again, with a different algo
+coords = corner_peaks(corner_fast(masked_slit), min_distance=5, threshold_rel=0.02)
+coords_subpix = corner_subpix(masked_slit, coords, window_size=13)
+
+fig, ax = plt.subplots()
+ax.imshow(masked_slit, cmap=plt.cm.gray)
+ax.plot(coords[:, 1], coords[:, 0], color='cyan', marker='o',
+        linestyle='None', markersize=6)
+ax.plot(coords_subpix[:, 1], coords_subpix[:, 0], '+r', markersize=15)
+# ax.axis((0, 310, 200, 0))
+plt.show()
+
+# try blob search instead
+from skimage.feature import blob_log
+
+blobs = blob_log(slit_data, min_sigma=5, max_sigma=30, num_sigma=10, threshold=.1)
+
+# Compute radii in the 3rd column.
+blobs[:, 2] = blobs[:, 2] * np.sqrt(2)
+
+fig, ax = plt.subplots()
+ax.imshow(slit_data)
+for blob in blobs:
+    print(blob.shape)
+    y, x, r = blob
+    c = plt.Circle((x, y), r, color='yellow', linewidth=2, fill=False)
+    ax.add_patch(c)
+
+
+'''
+Hough transform is a dead end.
+'''
+# # Classic straight-line Hough transform
+# # Set a precision of 0.5 degree.
+# tested_angles = np.linspace(-np.pi / 2, np.pi / 2, 360, endpoint=False)
+# h, theta, d = hough_line(fake_slit, theta=tested_angles)
 #
-# plt.imshow(slit_data)
-
-
-# Classic straight-line Hough transform
-# Set a precision of 0.5 degree.
-tested_angles = np.linspace(-np.pi / 2, np.pi / 2, 360, endpoint=False)
-h, theta, d = hough_line(fake_slit, theta=tested_angles)
-
-# Generating figure 1
-fig, axes = plt.subplots(1, 3, figsize=(15, 6))
-ax = axes.ravel()
-
-ax[0].imshow(fake_slit, cmap=cm.gray)
-ax[0].set_title('Input image')
-ax[0].set_axis_off()
-
-angle_step = 0.5 * np.diff(theta).mean()
-d_step = 0.5 * np.diff(d).mean()
-bounds = [np.rad2deg(theta[0] - angle_step),
-          np.rad2deg(theta[-1] + angle_step),
-          d[-1] + d_step, d[0] - d_step]
-ax[1].imshow(np.log(1 + h), extent=bounds, cmap=cm.gray, aspect=1 / 1.5)
-ax[1].set_title('Hough transform')
-ax[1].set_xlabel('Angles (degrees)')
-ax[1].set_ylabel('Distance (pixels)')
-ax[1].axis('image')
-
-ax[2].imshow(fake_slit, cmap=cm.gray)
-ax[2].set_ylim((fake_slit.shape[0], 0))
-ax[2].set_axis_off()
-ax[2].set_title('Detected lines')
-
-for _, angle, dist in zip(*hough_line_peaks(h, theta, d, threshold=None, num_peaks=10)):
-    (x0, y0) = dist * np.array([np.cos(angle), np.sin(angle)])
-    ax[2].axline((x0, y0), slope=np.tan(angle + np.pi/2))
-
-plt.tight_layout()
-plt.show()
-
-
-# try again, but with some filtering
-edges = canny(fake_slit, 2, 1, 25)
-# edges = canny(slit_data, sigma=1.0, low_threshold=10, high_threshold=20, use_quantiles=False)
-# plt.imshow(edges)
-
-lines = probabilistic_hough_line(edges, threshold=10, line_length=3, line_gap=10)
-
-# Generating figure 2
-fig, axes = plt.subplots(1, 3, figsize=(15, 5), sharex=True, sharey=True)
-ax = axes.ravel()
-
-ax[0].imshow(fake_slit, cmap=cm.gray)
-ax[0].set_title('Input image')
-
-ax[1].imshow(edges, cmap=cm.gray)
-ax[1].set_title('Canny edges')
-
-ax[2].imshow(edges * 0)
-for line in lines:
-    p0, p1 = line
-    ax[2].plot((p0[0], p1[0]), (p0[1], p1[1]))
-ax[2].set_xlim((0, fake_slit.shape[1]))
-ax[2].set_ylim((fake_slit.shape[0], 0))
-ax[2].set_title('Probabilistic Hough')
-
-for a in ax:
-    a.set_axis_off()
-
-plt.tight_layout()
-plt.show()
+# # Generating figure 1
+# fig, axes = plt.subplots(1, 3, figsize=(15, 6))
+# ax = axes.ravel()
+#
+# ax[0].imshow(fake_slit, cmap=cm.gray)
+# ax[0].set_title('Input image')
+# ax[0].set_axis_off()
+#
+# angle_step = 0.5 * np.diff(theta).mean()
+# d_step = 0.5 * np.diff(d).mean()
+# bounds = [np.rad2deg(theta[0] - angle_step),
+#           np.rad2deg(theta[-1] + angle_step),
+#           d[-1] + d_step, d[0] - d_step]
+# ax[1].imshow(np.log(1 + h), extent=bounds, cmap=cm.gray, aspect=1 / 1.5)
+# ax[1].set_title('Hough transform')
+# ax[1].set_xlabel('Angles (degrees)')
+# ax[1].set_ylabel('Distance (pixels)')
+# ax[1].axis('image')
+#
+# ax[2].imshow(fake_slit, cmap=cm.gray)
+# ax[2].set_ylim((fake_slit.shape[0], 0))
+# ax[2].set_axis_off()
+# ax[2].set_title('Detected lines')
+#
+# for _, angle, dist in zip(*hough_line_peaks(h, theta, d, threshold=None, num_peaks=10)):
+#     (x0, y0) = dist * np.array([np.cos(angle), np.sin(angle)])
+#     ax[2].axline((x0, y0), slope=np.tan(angle + np.pi/2))
+#
+# plt.tight_layout()
+# plt.show()
+#
+#
+# # try again, but with some filtering
+# edges = canny(fake_slit, 2, 1, 25)
+# # edges = canny(slit_data, sigma=1.0, low_threshold=10, high_threshold=20, use_quantiles=False)
+# # plt.imshow(edges)
+#
+# lines = probabilistic_hough_line(edges, threshold=10, line_length=3, line_gap=10)
+#
+# # Generating figure 2
+# fig, axes = plt.subplots(1, 3, figsize=(15, 5), sharex=True, sharey=True)
+# ax = axes.ravel()
+#
+# ax[0].imshow(fake_slit, cmap=cm.gray)
+# ax[0].set_title('Input image')
+#
+# ax[1].imshow(edges, cmap=cm.gray)
+# ax[1].set_title('Canny edges')
+#
+# ax[2].imshow(edges * 0)
+# for line in lines:
+#     p0, p1 = line
+#     ax[2].plot((p0[0], p1[0]), (p0[1], p1[1]))
+# ax[2].set_xlim((0, fake_slit.shape[1]))
+# ax[2].set_ylim((fake_slit.shape[0], 0))
+# ax[2].set_title('Probabilistic Hough')
+#
+# for a in ax:
+#     a.set_axis_off()
+#
+# plt.tight_layout()
+# plt.show()
 
 '''
 old code below
