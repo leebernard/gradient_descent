@@ -97,7 +97,7 @@ draw_slit(fake_slit, origin, length, angle)
 # end create test data
 
 # create some test data
-im_path = 'image_data/Image__2023-09-01__22-02-26_slit_background12bit.tiff'
+im_path = 'image_data/Image__2023-09-01__22-02-26_slit_background.tiff'
 from PIL import Image
 slit_im = Image.open(im_path)
 # slit_raw = rawpy.imread(im_path)
