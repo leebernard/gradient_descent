@@ -17,6 +17,7 @@ with Image.open(im_path) as slit_im:
     # convert to numpy array
     slit_data = np.asarray(slit_im)
 
+
 # subframe = slit_data[1344:1369, 1070:1450]
 #
 # subframe2 = slit_data[1320:1390, 1085:1432]
@@ -31,7 +32,6 @@ coords = np.asarray([upper_left, upper_right, lower_right, lower_left])
 coords_center = coords.mean(axis=0)
 print("center of slit:", coords_center)
 # center of slit: [1355.25 1259.25]
-
 
 
 fig, ax = plt.subplots()
